@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Sidebar from "@/components/SideBar";
 import Link from "next/link";
+import Loader from "@/components/Loader";
 
 interface Order {
   _id: string;
@@ -64,7 +65,7 @@ export default function OrdersPage() {
         </div>
 
         {orders.length === 0 ? (
-          <p>No orders found.</p>
+          <Loader/>
         ) : (
           orders.map((order) => (
             <Card key={order._id} className="mb-4">

@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from '@/components/Loader';
 import Sidebar from '@/components/SideBar';  // Import Sidebar component
 import React, { useEffect, useState } from 'react';
 
@@ -29,7 +30,7 @@ const Completed = () => {
   }, []);
 
   if (loading) {
-    return <p className="text-center text-blue-500">Loading completed orders...</p>;
+    return <Loader/>;
   }
 
   if (completedOrders.length === 0) {

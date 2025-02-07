@@ -1,5 +1,6 @@
 "use client"
 
+import Loader from "@/components/Loader";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
@@ -30,7 +31,7 @@ function DispatchPageClient({ order }: DispatchPageProps) {
   }, [order]);
 
   if (!order) {
-    return <p className="text-center text-red-500">Order not found!</p>;
+    return <p className="text-center text-red-500"><Loader/></p>;
   }
 
   return (
@@ -58,7 +59,7 @@ export default function DispatchPage({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   if (loading) {
-    return <p className="text-center text-blue-500">Loading order...</p>;
+    return <Loader/>
   }
 
   return <DispatchPageClient order={order} />;
