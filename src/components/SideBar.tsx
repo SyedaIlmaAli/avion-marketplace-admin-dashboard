@@ -59,7 +59,7 @@ const Sidebar = () => {
             ))}
           </nav>
           <div className="mt-auto flex flex-col gap-3">
-            <LogoutLink className="p-3 bg-red-600 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700">
+            <LogoutLink  className="p-3 bg-red-600 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700">
               <LogOutIcon />
               <p>Log out</p>
             </LogoutLink>

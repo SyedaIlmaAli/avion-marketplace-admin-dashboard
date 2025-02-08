@@ -86,18 +86,22 @@ export default function CategoriesPage() {
 
   async function handleDeleteCategory(id: string) {
     if (!confirm("Are you sure you want to delete this category?")) return;
-
+  
     setLoading(true);
     const res = await fetch(`/api/categories/${id}`, { method: "DELETE" });
-
+  
+    const responseData = await res.json(); // Log API response
+    console.log("Delete Response:", responseData);
+  
     if (res.ok) {
       toast.success("Category deleted successfully!");
       fetchCategories();
     } else {
-      toast.error("Failed to delete category.");
+      toast.error(responseData?.message || "Failed to delete category.");
     }
     setLoading(false);
   }
+  
 
   return (
     <div className="flex h-screen">
